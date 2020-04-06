@@ -36,7 +36,6 @@ public class AlarmReminderContract {
         public static final String KEY_REPEAT_NO = "repeat_no";
         public static final String KEY_REPEAT_TYPE = "repeat_type";
         public static final String KEY_ACTIVE = "active";
-
     }
 
     public static String getColumnString(Cursor cursor, String columnName) {

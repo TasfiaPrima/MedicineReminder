@@ -11,6 +11,7 @@ import android.widget.ListAdapter;
 import android.widget.TextView;
 
 import com.google.android.material.internal.TextDrawableHelper;
+import com.prima.iut.alarmreminder.data.AlarmReminderContract;
 
 public class AlarmCursorAdapter extends CursorAdapter implements ListAdapter {
 
@@ -59,13 +60,8 @@ public class AlarmCursorAdapter extends CursorAdapter implements ListAdapter {
         setReminderDateTime(dateTime);
         setReminderRepeatInfo(repeat, repeatNo, repeatType);
         setActiveImage(active);
-
-
-
-
     }
 
-    // Set reminder title view
     public void setReminderTitle(String title) {
         mTitleText.setText(title);
         String letter = "A";
@@ -76,18 +72,15 @@ public class AlarmCursorAdapter extends CursorAdapter implements ListAdapter {
 
         int color = mColorGenerator.getRandomColor();
 
-        // Create a circular icon consisting of  a random background colour and first letter of title
         mDrawableBuilder = TextDrawable.builder()
                 .buildRound(letter, color);
         mThumbnailImage.setImageDrawable(mDrawableBuilder);
     }
 
-    // Set date and time views
     public void setReminderDateTime(String datetime) {
         mDateAndTimeText.setText(datetime);
     }
 
-    // Set repeat views
     public void setReminderRepeatInfo(String repeat, String repeatNo, String repeatType) {
         if(repeat.equals("true")){
             mRepeatInfoText.setText("Every " + repeatNo + " " + repeatType + "(s)");
@@ -96,7 +89,6 @@ public class AlarmCursorAdapter extends CursorAdapter implements ListAdapter {
         }
     }
 
-    // Set active image as on or off
     public void setActiveImage(String active){
         if(active.equals("true")){
             mActiveImage.setImageResource(R.drawable.ic_notifications_on_white_24dp);

@@ -40,7 +40,6 @@ public abstract class MainActivity extends AppCompatActivity implements LoaderMa
         setSupportActionBar(mToolbar);
         mToolbar.setTitle(R.string.app_name);
 
-
         reminderListView = (ListView) findViewById(R.id.list);
         View emptyView = findViewById(R.id.empty_view);
         reminderListView.setEmptyView(emptyView);
@@ -55,15 +54,11 @@ public abstract class MainActivity extends AppCompatActivity implements LoaderMa
                 Intent intent = new Intent(MainActivity.this, AddReminder.class);
 
                 Uri currentVehicleUri = ContentUris.withAppendedId(AlarmReminderContract.AlarmReminderEntry.CONTENT_URI, id);
-
-                // Set the URI on the data field of the intent
                 intent.setData(currentVehicleUri);
 
                 startActivity(intent);
-
             }
         });
-
 
         mAddReminderButton = (FloatingActionButton) findViewById(R.id.fab);
 

@@ -22,7 +22,6 @@ public class ReminderAlarmService extends IntentService {
     private static final int NOTIFICATION_ID = 42;
 
     Cursor cursor;
-    //This is a deep link intent, and needs the task stack
     public static PendingIntent getReminderPendingIntent(Context context, Uri uri) {
         Intent action = new Intent(context, ReminderAlarmService.class);
         action.setData(uri);
@@ -38,14 +37,12 @@ public class ReminderAlarmService extends IntentService {
         NotificationManager manager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
         Uri uri = intent.getData();
 
-        //Display a notification to view the task details
         Intent action = new Intent(this, AddReminder.class);
         action.setData(uri);
         PendingIntent operation = TaskStackBuilder.create(this)
                 .addNextIntentWithParentStack(action)
                 .getPendingIntent(0, PendingIntent.FLAG_UPDATE_CURRENT);
 
-        //Grab the task description
         if(uri != null){
             cursor = getContentResolver().query(uri, null, null, null, null);
         }
