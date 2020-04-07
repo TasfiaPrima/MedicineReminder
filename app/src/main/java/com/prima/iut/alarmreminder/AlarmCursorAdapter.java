@@ -55,7 +55,6 @@ public class AlarmCursorAdapter extends CursorAdapter implements ListAdapter {
 
         String dateTime = date + " " + time;
 
-
         setReminderTitle(title);
         setReminderDateTime(dateTime);
         setReminderRepeatInfo(repeat, repeatNo, repeatType);

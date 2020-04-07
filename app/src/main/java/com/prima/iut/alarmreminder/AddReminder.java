@@ -31,6 +31,7 @@ import androidx.loader.content.Loader;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.prima.iut.alarmreminder.data.AlarmReminderContract;
+import com.prima.iut.alarmreminder.reminder.AlarmScheduler;
 
 import java.util.Calendar;
 
@@ -216,7 +217,7 @@ public abstract class AddReminder extends AppCompatActivity implements
                 false
         );
         tpd.setThemeDark(false);
-        tpd.show(gerFragmentManager(),"Timepickerdialog");
+        tpd.show(getFragmentManager(),"Timepickerdialog");
     }
 
     public void setDate(View v){
@@ -227,7 +228,7 @@ public abstract class AddReminder extends AppCompatActivity implements
                 now.get(Calendar.MONTH),
                 now.get(Calendar.DAY_OF_MONTH)
         );
-        dpd.show(gerFragmentManager(), "Datepickerdialog");
+        dpd.show(getFragmentManager(), "Datepickerdialog");
     }
 
     @Override

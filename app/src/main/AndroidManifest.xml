@@ -30,7 +30,7 @@
         </activity>
         <provider
             android:name=".data.AlarmReminderProvider"
-            android:authorities="com.delaroystudios.alarmreminder"
+            android:authorities="com.prima.iut.alarmreminder"
             android:exported="false" />
 
         <service
